@@ -1,0 +1,21 @@
+# Dependências e builds
+node_modules/
+dist/
+build/
+.idea/
+__pycache__/
+.venv/
+db.sqlite3
+*.py[cod]
+
+# Segredos e configurações locais
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Logs e arquivos do sistema
+*.log
+.DS_Store
+Thumbs.db
