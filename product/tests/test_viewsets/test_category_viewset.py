@@ -1,6 +1,7 @@
 import json
 from rest_framework import status
 
+from order.factory import UserFactory
 from product.factories import CategoryFactory, ProductFactory
 from product.models import Category
 from rest_framework.test import APIClient, APITestCase
@@ -11,6 +12,8 @@ class CategoryViewSet(APITestCase):
     client = APIClient()
 
     def setUp(self):
+        self.user = UserFactory()
+        self.client.force_authenticate(user=self.user)
         self.category = CategoryFactory(title='books')
 
     def test_get_all_category(self):
@@ -21,7 +24,7 @@ class CategoryViewSet(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         category_data = json.loads(response.content)
 
-        self.assertEqual(category_data[0]['title'], self.category.title)
+        self.assertEqual(category_data['results'][0]['title'], self.category.title)
 
     def test_create_category(self):
         data = json.dumps({
