@@ -23,6 +23,8 @@ jobs:
 
       - name: Test
         run: poetry run python manage.py test
+        env:
+          SECRET_KEY: ci-only-test-key-not-for-production
 
       - name: Wemake Python Styleguide
         uses: wemake-services/wemake-python-styleguide@0.16.0
