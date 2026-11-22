@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-t3-m%5rp-!*b7zbd-a_$tgs^d-$%bv@htwakx7n21&3_qn4@8a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1',
+'MatrixServer.pythonanywhere.com']
 
 INTERNAL_IPS = ["127.0.0.1", "::1"]
 
